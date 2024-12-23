@@ -1,0 +1,122 @@
+[
+  {
+    "Image": "https://i.ibb.co.com/GPqRWDj/To-Kill-a-Mockingbird.jpg",
+    "Name": "To Kill a Mockingbird",
+    "AuthorName": "Harper Lee",
+    "Category": "Fiction",
+    "Quantity": 12,
+    "Rating": 4.8,
+    "ShortDescription": "A classic novel about justice and racial inequality in the American South.",
+    "BookContent": "This book explores themes of morality, justice, and the human condition through the eyes of young Scout Finch."
+  },
+  {
+    "Image": "https://i.ibb.co.com/pdyKWzC/1984.jpg",
+    "Name": "1984",
+    "AuthorName": "George Orwell",
+    "Category": "Fiction",
+    "Quantity": 8,
+    "Rating": 4.7,
+    "ShortDescription": "A dystopian tale of surveillance and totalitarianism.",
+    "BookContent": "Dive into a chilling world of control, where individuality is suppressed, and truth is manipulated."
+  },
+  {
+    "Image": "https://i.ibb.co.com/Zm91hjt/gatsby.jpg",
+    "Name": "The Great Gatsby",
+    "AuthorName": "F. Scott Fitzgerald",
+    "Category": "Fiction",
+    "Quantity": 15,
+    "Rating": 4.6,
+    "ShortDescription": "A story of wealth, ambition, and unrequited love in the Jazz Age.",
+    "BookContent": "This iconic novel paints a vivid picture of the American dream and its discontents."
+  },
+  {
+    "Image": "https://i.ibb.co.com/7JjGQhy/sapiens.jpg",
+    "Name": "Sapiens: A Brief History of Humankind",
+    "AuthorName": "Yuval Noah Harari",
+    "Category": "Non-Fiction",
+    "Quantity": 10,
+    "Rating": 4.9,
+    "ShortDescription": "A fascinating exploration of humanity's evolution and societal development.",
+    "BookContent": "Discover the journey of Homo sapiens, from ancient hunters to modern-day innovators."
+  },
+  {
+    "Image": "https://i.ibb.co.com/rFds6z3/educated.jpg",
+    "Name": "Educated",
+    "AuthorName": "Tara Westover",
+    "Category": "Non-Fiction",
+    "Quantity": 7,
+    "Rating": 4.7,
+    "ShortDescription": "A memoir of resilience and the transformative power of education.",
+    "BookContent": "Follow Tara's journey from a strict, isolated upbringing to earning a Ph.D. from Cambridge University."
+  },
+  {
+    "Image": "https://i.ibb.co.com/vxGCRXt/becoming.jpg",
+    "Name": "Becoming",
+    "AuthorName": "Michelle Obama",
+    "Category": "Non-Fiction",
+    "Quantity": 9,
+    "Rating": 4.8,
+    "ShortDescription": "The inspiring memoir of the former First Lady of the United States.",
+    "BookContent": "Michelle Obama shares her personal journey, challenges, and triumphs in this bestselling autobiography."
+  },
+  {
+    "Image": "https://i.ibb.co.com/ZhKh2Qj/potter.jpg",
+    "Name": "Harry Potter and the Sorcerer's Stone",
+    "AuthorName": "J.K. Rowling",
+    "Category": "Fantasy",
+    "Quantity": 20,
+    "Rating": 4.9,
+    "ShortDescription": "The magical start to the Harry Potter series.",
+    "BookContent": "Join Harry as he discovers his wizarding heritage and attends Hogwarts School of Witchcraft and Wizardry."
+  },
+  {
+    "Image": "https://i.ibb.co.com/K0BSFsS/hobbit.jpg",
+    "Name": "The Hobbit",
+    "AuthorName": "J.R.R. Tolkien",
+    "Category": "Fantasy",
+    "Quantity": 14,
+    "Rating": 4.8,
+    "ShortDescription": "A thrilling adventure in Middle-earth.",
+    "BookContent": "Follow Bilbo Baggins on his unexpected journey to reclaim treasure guarded by the dragon Smaug."
+  },
+  {
+    "Image": "https://i.ibb.co.com/xSH6bsH/thrones.jpg",
+    "Name": "A Game of Thrones",
+    "AuthorName": "George R.R. Martin",
+    "Category": "Fantasy",
+    "Quantity": 11,
+    "Rating": 4.7,
+    "ShortDescription": "The epic first installment of the A Song of Ice and Fire series.",
+    "BookContent": "Enter a world of political intrigue, noble families, and a fight for the Iron Throne."
+  },
+  {
+    "Image": "https://i.ibb.co.com/GMqZtkC/atomichabits.jpg",
+    "Name": "Atomic Habits",
+    "AuthorName": "James Clear",
+    "Category": "Self-Help",
+    "Quantity": 25,
+    "Rating": 4.9,
+    "ShortDescription": "A guide to building good habits and breaking bad ones.",
+    "BookContent": "Learn practical strategies to create lasting change and improve your life one habit at a time."
+  },
+  {
+    "Image": "https://i.ibb.co.com/RBw4yBg/power-of-habit.jpg",
+    "Name": "The Power of Habit",
+    "AuthorName": "Charles Duhigg",
+    "Category": "Self-Help",
+    "Quantity": 18,
+    "Rating": 4.8,
+    "ShortDescription": "Understanding the science of habits and how they shape our lives.",
+    "BookContent": "Discover how habits work and how you can harness them for personal and professional growth."
+  },
+  {
+    "Image": "https://i.ibb.co.com/pJcpn2N/del.jpg",
+    "Name": "How to Win Friends and Influence People",
+    "AuthorName": "Dale Carnegie",
+    "Category": "Self-Help",
+    "Quantity": 30,
+    "Rating": 4.7,
+    "ShortDescription": "Timeless principles for effective communication and building relationships.",
+    "BookContent": "This classic self-help book provides actionable advice for achieving personal and professional success."
+  }
+]
