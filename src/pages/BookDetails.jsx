@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import AuthContext from "../AuthContext/AuthContext";
+import Swal from "sweetalert2";
+import moment from "moment";
 
 const BookDetails = () => {
   const data = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const [currentQuantity, setCurrenQuantity] = useState(data.Quantity);
+  const email = user?.email;
+  const name = user?.displayName;
+  const date = moment();
+  const borrowedDate = date.format("D/MM/YYYY");
+
   const {
+    _id,
     Image,
     Name,
     AuthorName,
@@ -14,7 +25,47 @@ const BookDetails = () => {
     BookContent,
   } = data;
 
-  console.log(data);
+  // console.log(data);
+
+  const handleBorrow = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const returnDate = moment(form.returnDate.value).format("D/MM/YYYY");
+
+    const newBorrow = {
+      name,
+      email,
+      returnDate,
+      borrowedDate,
+      data,
+    };
+
+    console.log(newBorrow);
+
+    fetch("http://localhost:5000/borrow", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newBorrow),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "You Borrowed successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          //close modal
+          const modal = document.getElementById("my_modal_4");
+          modal.close();
+        }
+      });
+  };
+
   return (
     <div>
       <h2 className="text-center text-3xl my-10">Book Details</h2>
@@ -41,135 +92,102 @@ const BookDetails = () => {
             Content: <span className="italic"> {BookContent}</span>{" "}
           </p>
           <div className="card-actions justify-end">
-            <button className="btn btn-neutral">Borrow</button>
+            <button
+              onClick={() => document.getElementById("my_modal_4").showModal()}
+              className="btn btn-neutral"
+              disabled={currentQuantity === 0}
+            >
+              Borrow
+            </button>
           </div>
         </div>
       </div>
+
+      {/* <button
+        className="btn"
+        onClick={() => document.getElementById("my_modal_4").showModal()}
+      >
+        open modal
+      </button> */}
+      <dialog id="my_modal_4" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <h3 className="font-bold text-lg">Borrow this book</h3>
+
+          <form onSubmit={handleBorrow} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text"> Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="name"
+                name="name"
+                defaultValue={name}
+                className="input input-bordered"
+                required
+                readOnly
+              />
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="email"
+                className="input input-bordered"
+                name="email"
+                required
+                defaultValue={email}
+                readOnly
+              />
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Current Date</span>
+              </label>
+              <input
+                type="text"
+                placeholder="age-restriction"
+                className="input input-bordered"
+                name="borrowedDate"
+                defaultValue={borrowedDate}
+                readOnly
+              />
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Return Date</span>
+              </label>
+              <input
+                type="date"
+                placeholder="Return Date"
+                className="input input-bordered"
+                name="returnDate"
+              />
+            </div>
+
+            <div className="form-control mt-6">
+              <div className="modal-action" method="dialog">
+                <button type="submit" className="btn btn-neutral">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+          <div className="modal-action">
+            {/* <form method="dialog">
+         
+              <button className="btn">Close</button>
+            </form> */}
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };
 
 export default BookDetails;
-
-// import React, { useState } from 'react';
-// import { useLoaderData } from "react-router-dom";
-
-// const BookDetails = () => {
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-//   const [bookQuantity, setBookQuantity] = useState(0);
-//   const data = useLoaderData();
-
-//   const {
-//     Image,
-//     Name,
-//     AuthorName,
-//     Category,
-//     Quantity,
-//     Rating,
-//     ShortDescription,
-//     BookContent,
-//   } = data;
-
-//   const userEmail = "user@example.com";
-//   const userName = "John Doe";
-
-//   const handleBorrow = (e) => {
-//     e.preventDefault();
-//     const returnDate = e.target.returnDate.value;
-//     setBookQuantity(prev => Math.max(0, prev - 1));
-
-//     const borrowData = {
-//       bookName: Name,
-//       userEmail,
-//       userName,
-//       returnDate,
-//       borrowDate: new Date().toISOString()
-//     };
-
-//     console.log('Borrow data:', borrowData);
-//     setIsModalOpen(false);
-//   };
-
-//   return (
-//     <div>
-//       <h2 className="text-center text-3xl my-10">Book Details</h2>
-
-//       <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-//         <img src={Image} alt={Name} className="w-full h-48 object-cover" />
-//         <div className="p-6">
-//           <h2 className="text-xl font-bold mb-2">{Name}</h2>
-//           <p className="mb-2">by - <span className="font-semibold">{AuthorName}</span></p>
-//           <p className="font-semibold mb-2">Category: <span>{Category}</span></p>
-//           <p className="font-semibold mb-2">Quantity: <span>{Quantity}</span></p>
-//           <p className="font-semibold mb-2">Rating: {Rating}</p>
-//           <p className="font-semibold mb-2">Summary: {ShortDescription}</p>
-//           <p className="font-semibold mb-2">Content: <span className="italic">{BookContent}</span></p>
-//           <div className="text-right">
-//             <button
-//               className={`px-4 py-2 rounded ${Quantity === 0
-//                 ? 'bg-gray-300 cursor-not-allowed'
-//                 : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
-//               onClick={() => setIsModalOpen(true)}
-//               disabled={Quantity === 0}
-//             >
-//               Borrow
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-
-//       {isModalOpen && (
-//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-//           <div className="bg-white p-6 rounded-lg w-96">
-//             <h3 className="text-lg font-bold mb-4">Borrow Book</h3>
-//             <form onSubmit={handleBorrow} className="space-y-4">
-//               <div>
-//                 <label className="block text-sm font-medium mb-1">Name</label>
-//                 <input
-//                   type="text"
-//                   value={userName}
-//                   disabled
-//                   className="w-full p-2 border rounded bg-gray-100"
-//                 />
-//               </div>
-//               <div>
-//                 <label className="block text-sm font-medium mb-1">Email</label>
-//                 <input
-//                   type="email"
-//                   value={userEmail}
-//                   disabled
-//                   className="w-full p-2 border rounded bg-gray-100"
-//                 />
-//               </div>
-//               <div>
-//                 <label className="block text-sm font-medium mb-1">Return Date</label>
-//                 <input
-//                   type="date"
-//                   name="returnDate"
-//                   required
-//                   className="w-full p-2 border rounded"
-//                   min={new Date().toISOString().split('T')[0]}
-//                 />
-//               </div>
-//               <div className="flex gap-2 justify-end">
-//                 <button
-//                   type="button"
-//                   onClick={() => setIsModalOpen(false)}
-//                   className="px-4 py-2 border rounded hover:bg-gray-100"
-//                 >
-//                   Cancel
-//                 </button>
-//                 <button
-//                   type="submit"
-//                   className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-//                 >
-//                   Confirm Borrow
-//                 </button>
-//               </div>
-//             </form>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
