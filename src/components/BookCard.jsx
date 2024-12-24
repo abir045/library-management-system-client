@@ -14,7 +14,7 @@ const BookCard = ({ book }) => {
   } = book;
 
   const { pathname } = useLocation();
-  const normalizedPathname = pathname.toLowerCase();
+//   const normalizedPathname = pathname.toLowerCase();
   return (
     <div>
       <div className="card bg-base-100  shadow-xl">
@@ -32,11 +32,11 @@ const BookCard = ({ book }) => {
             <button className="btn btn-primary">Update</button>
           </div>
 
-          {normalizedPathname === `/category/${Category}` && (
+          {/* {normalizedPathname === `/category/${Category}` && (
             <div>
               <button className="btn btn-neutral">Details</button>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
