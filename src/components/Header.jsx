@@ -1,7 +1,10 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../AuthContext/AuthContext";
 
 const Header = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
   const links = (
     <>
       <li>
@@ -61,7 +64,41 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Login</a>
+        {user && user?.email ? (
+          <>
+            <div className="flex items-center relative">
+              <div className="">
+                <img
+                  className="w-10 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </div>
+
+              <div className="opacity-0 hover:opacity-100 absolute right-[50%]">
+                <div className="flex  items-center">
+                  <p>{user?.displayName}</p>
+                  <button
+                    className="btn btn-neutral rounded-xl"
+                    onClick={signOutUser}
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="flex gap-1">
+            <Link className="btn btn-sm" to="/login">
+              Log In
+            </Link>
+
+            <Link className="btn btn-sm" to="/register">
+              Register
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
