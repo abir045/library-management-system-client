@@ -27,6 +27,12 @@ const BorrowedBooks = () => {
     fetchUserBorrowedBooks();
   }, [email]);
 
+  const handleSuccessfulReturn = (id) => {
+    setBorrowedBooks((borrowedBooks) =>
+      borrowedBooks.filter((book) => book._id !== id)
+    );
+  };
+
   if (loading) {
     return <Loading />;
   }
@@ -41,7 +47,7 @@ const BorrowedBooks = () => {
           <BorrowedCard
             key={book._id}
             book={book}
-            // handleReturn={handleReturn}
+            handleSuccessfulReturn={handleSuccessfulReturn}
           />
         ))}
       </div>

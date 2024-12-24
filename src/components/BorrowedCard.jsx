@@ -1,7 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 
-const BorrowedCard = ({ book }) => {
+const BorrowedCard = ({ book, handleSuccessfulReturn }) => {
   const { Image, Name, Category, AuthorName } = book.data;
   const { returnDate, borrowedDate, _id } = book;
   const bookId = book.data._id;
@@ -30,6 +30,7 @@ const BorrowedCard = ({ book }) => {
                 text: "Book has been returned successfully.",
                 icon: "success",
               });
+              handleSuccessfulReturn(_id);
             }
           })
           .catch((error) => {
