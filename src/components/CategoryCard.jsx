@@ -18,7 +18,7 @@ const CategoryCard = ({ type }) => {
       bg-gray-500 "
         >
           <div className="card-body ">
-            <h2 className="font-bold text-3xl text-gray-600 text-center">
+            <h2 className="font-bold text-3xl text-gray-900 text-center">
               {" "}
               {category}
             </h2>

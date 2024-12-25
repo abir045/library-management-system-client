@@ -15,7 +15,9 @@ const BorrowedBooks = () => {
     const fetchUserBorrowedBooks = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/borrow/${email}`);
+        const response = await fetch(`http://localhost:5000/borrow/${email}`, {
+          credentials: "include",
+        });
         const data = await response.json();
         setBorrowedBooks(data);
         console.log(borrowedBooks);

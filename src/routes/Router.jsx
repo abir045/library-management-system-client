@@ -28,7 +28,8 @@ const router = createBrowserRouter([
             <AllBooks />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allbooks"),
+        loader: () =>
+          fetch("http://localhost:5000/allbooks", { credentials: "include" }),
       },
       {
         path: "/categories",
