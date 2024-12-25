@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +7,8 @@ import SocialLogin from "../shared/SocialLogin";
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("You have logged in successfully");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
         toast.error(err.message || "failed to log in , please try again");
