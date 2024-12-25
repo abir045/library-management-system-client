@@ -3,6 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import AuthContext from "../AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import moment from "moment";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BookDetails = () => {
   const data = useLoaderData();
@@ -52,6 +54,19 @@ const BookDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data.success === false) {
+          const modal = document.getElementById("my_modal_4");
+          modal.close();
+          Swal.fire({
+            title: "Error!",
+            text: data.message || "You have already borrowed this book",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+
+          return;
+        }
+
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -63,6 +78,16 @@ const BookDetails = () => {
           const modal = document.getElementById("my_modal_4");
           modal.close();
         }
+      })
+      .catch((error) => {
+        // setIsLoading(false);
+
+        Swal.fire({
+          title: "Error!",
+          text: error.message || "Failed to borrow book",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
       });
   };
 
@@ -186,6 +211,7 @@ const BookDetails = () => {
           </div>
         </div>
       </dialog>
+      <ToastContainer />
     </div>
   );
 };

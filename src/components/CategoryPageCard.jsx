@@ -27,7 +27,7 @@ const CategoryPageCard = ({ book }) => {
           <p className="text-green-600">{Category}</p>
           <p>rating: {Rating}</p>
           <div className="card-actions justify-end">
-            <Link to={`/allbooks/${_id}`} className="btn btn-primary">
+            <Link to={`/allbooks/${_id}`} className="btn btn-neutral">
               Details
             </Link>
           </div>

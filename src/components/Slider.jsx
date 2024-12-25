@@ -62,7 +62,7 @@ const SliderImg = () => {
     <div className="slider-container">
       <Slider {...settings}>
         <div className="rounded-xl relative">
-          <img className="w-full h-[600px] rounded-xl " src={L1} alt="" />
+          <img className="w-full h-[600px] rounded-xl" src={L1} alt="" />
           <h3 className="absolute oswald text-6xl font-bold text-gray-100 top-32  left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             Welcome to Our Book world
           </h3>

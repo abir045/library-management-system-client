@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import CategoryCard from "./CategoryCard";
-
+import fiction from "../assets/fiction.jpg";
 const Categories = () => {
   const [cats, setCats] = useState([]);
   //   const categoryData = useLoaderData();
@@ -16,11 +16,11 @@ const Categories = () => {
   //   console.log(cats);
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="mx-auto max-w-7xl ">
       <h2 className="text-center text-3xl mt-10">
         All categories: {cats.length}{" "}
       </h2>
-      <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 ">
         {cats.map((type, index) => (
           <CategoryCard key={index} type={type} />
         ))}
