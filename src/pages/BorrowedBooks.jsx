@@ -39,8 +39,8 @@ const BorrowedBooks = () => {
 
   return (
     <div>
-      <h2 className="text-center text-3xl my-10">
-        Your Borrowed Books: {borrowedBooks.length}
+      <h2 className="text-center text-3xl my-10 font-bold">
+        Your Borrowed Books
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {borrowedBooks.map((book) => (

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../AuthContext/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SocialLogin = () => {
   const { signInWithGoogle } = useContext(AuthContext);
@@ -8,6 +10,7 @@ const SocialLogin = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
+        toast.success("You have logged in successfully");
       })
       .catch((error) => {
         console.log(error.message);
@@ -20,6 +23,8 @@ const SocialLogin = () => {
       <button className="btn btn-neutral" onClick={handleGoogleSignIn}>
         Google
       </button>
+
+      <ToastContainer />
     </div>
   );
 };

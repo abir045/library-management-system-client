@@ -32,6 +32,7 @@ const Register = () => {
         console.log(result.user);
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
+            toast.success("You have registered in successfully");
             navigate("/login");
           })
           .catch((err) => {

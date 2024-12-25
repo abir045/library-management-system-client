@@ -9,6 +9,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import BorrowedBooks from "../pages/BorrowedBooks";
 import UpdateBook from "../components/UpdateBook";
+import AddBook from "../pages/AddBook";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         element: <UpdateBook />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allbooks/${params.id}`),
+      },
+      {
+        path: "/addbook",
+        element: <AddBook />,
       },
 
       { path: "/register", element: <Register /> },

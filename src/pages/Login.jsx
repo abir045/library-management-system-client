@@ -17,6 +17,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        toast.success("You have logged in successfully");
       })
       .catch((err) => {
         toast.error(err.message || "failed to log in , please try again");

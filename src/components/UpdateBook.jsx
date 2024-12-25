@@ -8,11 +8,11 @@ const UpdateBook = () => {
   const navigate = useNavigate();
 
   const { _id, Image, Name, AuthorName, Category, Rating } = book;
-  console.log(book);
+  //   console.log(book);
 
   const handleUpdateBook = (e) => {
     e.preventDefault();
-    console.log(e.target.rating.value);
+    // console.log(e.target.rating.value);
 
     const form = e.target;
     const updatedBook = {
@@ -20,8 +20,10 @@ const UpdateBook = () => {
       Name: form.name.value,
       AuthorName: form.authorName.value,
       Category: form.category.value,
-      Rating: form.rating.value,
+      Rating: parseFloat(form.rating.value),
     };
+
+    console.log(updatedBook);
 
     fetch(`http://localhost:5000/allbooks/${_id}`, {
       method: "PUT",
