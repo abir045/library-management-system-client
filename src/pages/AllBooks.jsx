@@ -6,7 +6,7 @@ const AllBooks = () => {
   const loadedBooks = useLoaderData();
   return (
     <div>
-      <h2 className="text-center text-3xl">
+      <h2 className="text-center text-3xl mt-20">
         All Books : {loadedBooks.length}{" "}
       </h2>
 

@@ -23,7 +23,7 @@ const Header = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gray-300">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -63,17 +63,18 @@ const Header = () => {
           </li> */}
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end ">
         {user && user?.email ? (
           <>
-            <div className="flex items-center relative">
-              <div className="">
+            <div className="flex items-center relative ">
+              {/* <div className="opacity-100 z-99">
                 <img
                   className="w-10 rounded-full"
                   src={user?.photoURL}
                   alt=""
                 />
-              </div>
+              </div> */}
+              <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
 
               <div className="opacity-0 hover:opacity-100 absolute right-[50%]">
                 <div className="flex  items-center">
@@ -90,11 +91,11 @@ const Header = () => {
           </>
         ) : (
           <div className="flex gap-1">
-            <Link className="btn btn-sm" to="/login">
+            <Link className="btn btn-sm btn-neutral" to="/login">
               Log In
             </Link>
 
-            <Link className="btn btn-sm" to="/register">
+            <Link className="btn btn-sm btn-neutral" to="/register">
               Register
             </Link>
           </div>

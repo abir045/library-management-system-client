@@ -15,7 +15,7 @@ const CategoryCard = ({ type }) => {
       <Link to={`/category/${category.toLowerCase()}`}>
         <div
           className="card py-20 shadow-xl 
-      bg-gray-500 bg-clip-padding backdrop-filter  backdrop-blur-md bg-opacity-30 backdrop-saturate-100 backdrop-contrast-100"
+      bg-gray-500 "
         >
           <div className="card-body ">
             <h2 className="font-bold text-3xl text-gray-600 text-center">

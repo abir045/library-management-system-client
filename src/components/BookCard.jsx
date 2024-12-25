@@ -1,8 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const BookCard = ({ book }) => {
   const {
+    _id,
     Image,
     Name,
     AuthorName,
@@ -14,7 +15,7 @@ const BookCard = ({ book }) => {
   } = book;
 
   const { pathname } = useLocation();
-//   const normalizedPathname = pathname.toLowerCase();
+  //   const normalizedPathname = pathname.toLowerCase();
   return (
     <div>
       <div className="card bg-base-100  shadow-xl">
@@ -29,14 +30,10 @@ const BookCard = ({ book }) => {
           <p className="text-green-600">{Category}</p>
           <p>rating: {Rating}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Update</button>
+            <Link to={`/update-book/${_id}`}>
+              <button className="btn btn-neutral">Update</button>
+            </Link>
           </div>
-
-          {/* {normalizedPathname === `/category/${Category}` && (
-            <div>
-              <button className="btn btn-neutral">Details</button>
-            </div>
-          )} */}
         </div>
       </div>
     </div>
