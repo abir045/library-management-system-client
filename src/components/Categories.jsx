@@ -16,7 +16,7 @@ const Categories = () => {
   //   console.log(cats);
 
   return (
-    <div className="mx-auto max-w-7xl ">
+    <div className="mx-auto max-w-7xl px-5">
       <h2 className="text-center text-3xl mt-10">
         All categories: {cats.length}{" "}
       </h2>
