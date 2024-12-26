@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../AuthContext/AuthContext";
+import logo from "../assets/favicon.png";
 
 const Header = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -49,19 +50,13 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Book World</a>
+        <div className="flex items-center ">
+          <img src={logo} alt="" />
+          <a className="btn btn-ghost text-xl font-bold">Book World</a>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {links}
-          {/* <li>
-            <a>Item 1</a>
-          </li>
-
-          <li>
-            <a>Item 3</a>
-          </li> */}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end ">
         {user && user?.email ? (

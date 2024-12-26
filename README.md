@@ -4,7 +4,7 @@
 
 ## Purpose
 
-- In this website users can browse through collection of books, they can borrow a book for reading, they can return the book after reading. A user can also add a book.
+- In this website users can browse through collection of books, they can borrow a book for reading, they can return the book after reading. A user can also add a book and update a book.
 
 ## Live URL
 
@@ -15,6 +15,7 @@
 - A book can be added through add book route
 - A book can be borrowed browsing through categories
 - A book can be returned from the borrowed books page
+- A book can be updated from all books page.
 - List of Borrowed books can be viewed in Borrowed Books.
 
 ## NPM packages

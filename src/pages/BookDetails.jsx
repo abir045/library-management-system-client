@@ -6,6 +6,7 @@ import moment from "moment";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet";
+import ReactStars from "react-rating-stars-component";
 
 const BookDetails = () => {
   const data = useLoaderData();
@@ -116,7 +117,18 @@ const BookDetails = () => {
           <p className="font-semibold">
             Quantity: <span className="">{Quantity}</span>{" "}
           </p>
-          <p className="font-semibold">Rating: {Rating}</p>
+          <div className="flex items-center gap-2">
+            <ReactStars
+              count={5}
+              value={Rating}
+              size={24}
+              activeColor="#ffd700"
+              edit={false}
+              isHalf={true}
+            />
+            <span>({Rating})</span>
+          </div>
+          {/* <p className="font-semibold">Rating: {Rating}</p> */}
           <p className="font-semibold">Summary: {ShortDescription}</p>
           <p className="font-semibold">
             {" "}
