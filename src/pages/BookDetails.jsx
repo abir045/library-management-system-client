@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import moment from "moment";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
 
 const BookDetails = () => {
   const data = useLoaderData();
@@ -45,7 +46,7 @@ const BookDetails = () => {
 
     console.log(newBorrow);
 
-    fetch("http://localhost:5000/borrow", {
+    fetch("https://library-management-system-server-chi.vercel.app/borrow", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -94,6 +95,11 @@ const BookDetails = () => {
   return (
     <div>
       <h2 className="text-center text-3xl my-10">Book Details</h2>
+
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Book World | Book Details</title>
+      </Helmet>
 
       <div className="card bg-base-100 w-96 shadow-xl mx-auto my-10">
         <figure>

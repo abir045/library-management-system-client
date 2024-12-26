@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -25,13 +26,16 @@ const UpdateBook = () => {
 
     console.log(updatedBook);
 
-    fetch(`http://localhost:5000/allbooks/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedBook),
-    })
+    fetch(
+      `https://library-management-system-server-chi.vercel.app/allbooks/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedBook),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -55,8 +59,12 @@ const UpdateBook = () => {
   };
 
   return (
-    <div className="">
+    <div className="max-w-7xl px-5 mx-auto">
       <h2 className="text-3xl text-center my-20">Update book</h2>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Book World | Update Book</title>
+      </Helmet>
       <div className="max-w-6xl mx-auto">
         <form onSubmit={handleUpdateBook}>
           {/* Image URL */}

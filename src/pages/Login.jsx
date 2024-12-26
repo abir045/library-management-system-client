@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SocialLogin from "../shared/SocialLogin";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
@@ -23,9 +24,13 @@ const Login = () => {
         const user = { email: result.user.email };
 
         axios
-          .post("http://localhost:5000/jwt", user, {
-            withCredentials: true,
-          })
+          .post(
+            "https://library-management-system-server-chi.vercel.app/jwt",
+            user,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => console.log(res.data));
         toast.success("You have logged in successfully");
 
@@ -39,6 +44,10 @@ const Login = () => {
   return (
     <div>
       <div className="min-h-screen flex justify-center items-center">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Book World | Login</title>
+        </Helmet>
         <div className="card bg-base-100 w-full max-w-lg shrink-0  rounded-none p-10">
           <h2 className="text-2xl font-semibold text-center">
             {" "}

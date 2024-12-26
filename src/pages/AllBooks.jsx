@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import BookCard from "../components/BookCard";
+import { Helmet } from "react-helmet";
 
 const AllBooks = () => {
   const loadedBooks = useLoaderData();
@@ -18,7 +19,7 @@ const AllBooks = () => {
   };
 
   const TableView = () => (
-    <div className="overflow-x-auto mt-6">
+    <div className="overflow-x-auto mt-6 max-w-7xl mx-auto">
       <table className="min-w-full bg-white border border-gray-200">
         <thead className="bg-gray-50">
           <tr>
@@ -71,6 +72,10 @@ const AllBooks = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Book World | All Books</title>
+      </Helmet>
       <h2 className="text-center text-3xl mt-20 font-bold">All Books</h2>
 
       <div className="flex justify-center gap-4 mt-10">

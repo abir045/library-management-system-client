@@ -17,11 +17,14 @@ const BorrowedCard = ({ book, handleSuccessfulReturn }) => {
       confirmButtonText: "Yes, return it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/borrow/${_id}`, {
-          method: "DELETE",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ bookId }),
-        })
+        fetch(
+          `https://library-management-system-server-chi.vercel.app/borrow/${_id}`,
+          {
+            method: "DELETE",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ bookId }),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

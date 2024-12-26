@@ -11,11 +11,13 @@ import BorrowedBooks from "../pages/BorrowedBooks";
 import UpdateBook from "../components/UpdateBook";
 import AddBook from "../pages/AddBook";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -29,18 +31,26 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () =>
-          fetch("http://localhost:5000/allbooks", { credentials: "include" }),
+          fetch(
+            "https://library-management-system-server-chi.vercel.app/allbooks",
+            { credentials: "include" }
+          ),
       },
       {
         path: "/categories",
         element: <Categories />,
-        loader: () => fetch("http://localhost:5000/categories"),
+        loader: () =>
+          fetch(
+            "https://library-management-system-server-chi.vercel.app/categories"
+          ),
       },
       {
         path: "/category/:categoryName",
         element: <CategoryPage />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.categoryName}`),
+          fetch(
+            `https://library-management-system-server-chi.vercel.app/category/${params.categoryName}`
+          ),
       },
       {
         path: "/allbooks/:id",
@@ -50,7 +60,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allbooks/${params.id}`),
+          fetch(
+            `https://library-management-system-server-chi.vercel.app/allbooks/${params.id}`
+          ),
       },
 
       {
@@ -65,7 +77,9 @@ const router = createBrowserRouter([
         path: "/update-book/:id",
         element: <UpdateBook />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allbooks/${params.id}`),
+          fetch(
+            `https://library-management-system-server-chi.vercel.app/allbooks/${params.id}`
+          ),
       },
       {
         path: "/addbook",

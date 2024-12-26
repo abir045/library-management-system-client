@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddBook = () => {
   const { user } = useContext(AuthContext);
@@ -33,7 +34,7 @@ const AddBook = () => {
 
     console.log(newBook);
 
-    fetch("http://localhost:5000/allbooks", {
+    fetch("https://library-management-system-server-chi.vercel.app/allbooks", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -46,7 +47,7 @@ const AddBook = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "Visa added successfully",
+            text: "Book added successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -58,8 +59,12 @@ const AddBook = () => {
   return (
     <div>
       <h2 className="text-3xl font-bold text-center my-10">Add a Book</h2>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Book World | Add a Book</title>
+      </Helmet>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-5">
         <form onSubmit={handleAddBook}>
           {/* Image URL */}
 
