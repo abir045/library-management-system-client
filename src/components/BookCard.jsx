@@ -19,9 +19,9 @@ const BookCard = ({ book }) => {
   //   const normalizedPathname = pathname.toLowerCase();
   return (
     <div>
-      <div className="card bg-base-100  shadow-xl">
+      <div className="card bg-base-100 h-full w-full  shadow-xl">
         <figure>
-          <img className="h-[300px] " src={Image} alt="Shoes" />
+          <img className="w-[300px] h-[500px]  " src={Image} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title ">{Name}</h2>
